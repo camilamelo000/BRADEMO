@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          const Expanded(
+            child: Center(
+              child: Text('Widget', style: TextStyle(color: Colors.white, fontSize: 24)),
+            ),
+          ),
+          
+          Expanded(
+            child: Theme(
+              data: ThemeData(
+                scaffoldBackgroundColor: Colors.yellow,
+              ),
+              child: const Scaffold(
+                body: Center(
+                  child: Text('Widget', style: TextStyle(color: Colors.black, fontSize: 24)),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
